@@ -13,6 +13,7 @@
 		30965D561C23BBD8005F06AC /* showIt.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30965D541C23BBD8005F06AC /* showIt.xcdatamodeld */; };
 		30965D581C23BBD8005F06AC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30965D571C23BBD8005F06AC /* Assets.xcassets */; };
 		30965D5B1C23BBD8005F06AC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30965D591C23BBD8005F06AC /* LaunchScreen.storyboard */; };
+		30965D651C23C40B005F06AC /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30965D641C23C40B005F06AC /* PlayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		30965D571C23BBD8005F06AC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30965D5A1C23BBD8005F06AC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		30965D5C1C23BBD8005F06AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30965D641C23C40B005F06AC /* PlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				30965D4D1C23BBD8005F06AC /* AppDelegate.swift */,
 				30965D4F1C23BBD8005F06AC /* ViewController.swift */,
+				30965D641C23C40B005F06AC /* PlayerViewController.swift */,
 				30965D511C23BBD8005F06AC /* Main.storyboard */,
 				30965D571C23BBD8005F06AC /* Assets.xcassets */,
 				30965D591C23BBD8005F06AC /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30965D501C23BBD8005F06AC /* ViewController.swift in Sources */,
+				30965D651C23C40B005F06AC /* PlayerViewController.swift in Sources */,
 				30965D4E1C23BBD8005F06AC /* AppDelegate.swift in Sources */,
 				30965D561C23BBD8005F06AC /* showIt.xcdatamodeld in Sources */,
 			);
@@ -288,6 +292,7 @@
 				30965D611C23BBD8005F06AC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
