@@ -18,7 +18,8 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
     @IBOutlet var playerView: UIView!
     @IBOutlet var playButton: UIButton!
     @IBOutlet var honorTimedMetadataTracksDuringPlayback: UISwitch!
-    var facesLayer: [CALayer]?
+    //var facesLayer: [CALayer]?
+    var facesLayer: CALayer?
     var itemMetadataOutput: AVPlayerItemMetadataOutput?
     var seekToZeroBeforePlay: Bool?
     //AVPlayerItemMetadataOutput *itemMetadataOutput;
@@ -51,13 +52,19 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
         }
         else {
             self.honorTimedMetadataTracksDuringPlayback.setOn(false, animated: true)
-            self.
-            [self removeAllSublayersFromLayer:self.facesLayer]
+            self.removeAllSublayersFromLayer(self.facesLayer!)
+            //[self removeAllSublayersFromLayer:self.facesLayer]
         }
     }
-    
-    
-
+    func removeAllSublayersFromLayer(layer: CALayer) {
+        CATransaction.begin()
+        CATransaction.disableActions()
+        let sublayers: [CALayer] = layer.sublayers!
+        for layer: CALayer in sublayers {
+            layer.removeFromSuperlayer()
+        }
+        CATransaction.commit()
+    }
 }
 
 
