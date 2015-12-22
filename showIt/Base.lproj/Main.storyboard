@@ -42,6 +42,9 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9x-QE-ACt">
                                 <rect key="frame" x="496" y="562" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playButtonTapped:" destination="Wk6-rd-1QL" eventType="touchUpInside" id="okY-iI-C3O"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMw-C8-Jj1">
                                 <rect key="frame" x="430" y="561" width="51" height="31"/>
@@ -54,9 +57,9 @@
                     </view>
                     <connections>
                         <outlet property="honorTimedMetadataTracksDuringPlayback" destination="FMw-C8-Jj1" id="syc-8c-7Hc"/>
+                        <outlet property="pauseButton" destination="mcZ-6U-Bst" id="SRJ-ZY-Igb"/>
                         <outlet property="playButton" destination="Q9x-QE-ACt" id="SbQ-t5-4mM"/>
                         <outlet property="playerView" destination="Qmv-z5-dmd" id="A5o-Ck-Dbv"/>
-                        <outlet property="puaseButton" destination="mcZ-6U-Bst" id="08r-38-oic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8qr-no-uj5" userLabel="First Responder" sceneMemberID="firstResponder"/>

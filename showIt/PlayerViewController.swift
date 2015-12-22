@@ -14,7 +14,8 @@ import MobileCoreServices
 
 
 class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDelegate {
-    @IBOutlet var puaseButton: UIButton!
+    @IBOutlet var playButtonTapped: UIButton!
+    @IBOutlet var pauseButton: UIButton!
     @IBOutlet var playerView: UIView!
     @IBOutlet var playButton: UIButton!
     @IBOutlet var honorTimedMetadataTracksDuringPlayback: UISwitch!
@@ -23,6 +24,7 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
     var itemMetadataOutput: AVPlayerItemMetadataOutput?
     var seekToZeroBeforePlay: Bool?
     //AVPlayerItemMetadataOutput *itemMetadataOutput;
+    var player: AVPlayer?
     
     override func viewDidLoad() {
         
@@ -32,7 +34,7 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
         self.playerView.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         
         self.playButton.enabled = false
-        self.puaseButton.enabled = false
+        self.pauseButton.enabled = false
         
         self.playerView.backgroundColor = UIColor.darkGrayColor()
         let metadataQueue: dispatch_queue_t = dispatch_queue_create("com.apple.metadataqueue", DISPATCH_QUEUE_SERIAL)
@@ -53,7 +55,6 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
         else {
             self.honorTimedMetadataTracksDuringPlayback.setOn(false, animated: true)
             self.removeAllSublayersFromLayer(self.facesLayer!)
-            //[self removeAllSublayersFromLayer:self.facesLayer]
         }
     }
     func removeAllSublayersFromLayer(layer: CALayer) {
@@ -64,6 +65,15 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
             layer.removeFromSuperlayer()
         }
         CATransaction.commit()
+    }
+    @IBAction func playButtonTapped(sender: AnyObject) {
+        if (self.seekToZeroBeforePlay != nil) {
+            self.seekToZeroBeforePlay = false
+            self.player?.seekToTime(kCMTimeZero)
+        }
+        self.player?.play()
+        self.playButton.enabled = false
+        self.pauseButton.enabled = true
     }
 }
 
