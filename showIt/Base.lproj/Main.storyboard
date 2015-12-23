@@ -36,18 +36,19 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mcZ-6U-Bst">
-                                <rect key="frame" x="536" y="562" width="42" height="30"/>
+                                <rect key="frame" x="526" y="397" width="42" height="30"/>
                                 <state key="normal" title="Pause"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q9x-QE-ACt">
-                                <rect key="frame" x="496" y="562" width="30" height="30"/>
+                                <rect key="frame" x="481" y="397" width="30" height="30"/>
                                 <state key="normal" title="Play"/>
-                                <connections>
-                                    <action selector="playButtonTapped:" destination="Wk6-rd-1QL" eventType="touchUpInside" id="okY-iI-C3O"/>
-                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0S-O0-V85">
+                                <rect key="frame" x="20" y="398" width="48" height="30"/>
+                                <state key="normal" title="Library"/>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FMw-C8-Jj1">
-                                <rect key="frame" x="430" y="561" width="51" height="31"/>
+                                <rect key="frame" x="531" y="517" width="51" height="31"/>
                                 <connections>
                                     <action selector="toggleTMDSwitch:" destination="Wk6-rd-1QL" eventType="valueChanged" id="8xn-tB-Lk1"/>
                                 </connections>
@@ -55,10 +56,25 @@
                         </subviews>
                         <color key="backgroundColor" red="0.90216619318181812" green="0.90216619318181812" blue="0.90216619318181812" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem systemItem="camera" id="UOf-1r-5de">
+                            <connections>
+                                <action selector="loadMoviesFromCameraRoll:" destination="Wk6-rd-1QL" id="ru4-ET-KIe"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="play" id="fja-6i-eLF">
+                            <connections>
+                                <action selector="playButtonTapped:" destination="Wk6-rd-1QL" id="khM-Wl-wIf"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem systemItem="pause" id="Jxm-zs-AvX"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="honorTimedMetadataTracksDuringPlayback" destination="FMw-C8-Jj1" id="syc-8c-7Hc"/>
-                        <outlet property="pauseButton" destination="mcZ-6U-Bst" id="SRJ-ZY-Igb"/>
-                        <outlet property="playButton" destination="Q9x-QE-ACt" id="SbQ-t5-4mM"/>
+                        <outlet property="libraryButton" destination="UOf-1r-5de" id="pha-Jb-vZT"/>
+                        <outlet property="pauseButton" destination="Jxm-zs-AvX" id="dRP-R5-nNN"/>
+                        <outlet property="playButton" destination="fja-6i-eLF" id="BDT-OW-TxD"/>
                         <outlet property="playerView" destination="Qmv-z5-dmd" id="A5o-Ck-Dbv"/>
                     </connections>
                 </viewController>

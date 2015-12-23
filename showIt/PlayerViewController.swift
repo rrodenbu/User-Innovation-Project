@@ -14,10 +14,12 @@ import MobileCoreServices
 
 
 class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDelegate {
-    @IBOutlet var playButtonTapped: UIButton!
-    @IBOutlet var pauseButton: UIButton!
     @IBOutlet var playerView: UIView!
-    @IBOutlet var playButton: UIButton!
+    
+    @IBOutlet var libraryButton: UIBarButtonItem!
+    @IBOutlet var pauseButton: UIBarButtonItem!
+    @IBOutlet var playButton: UIBarButtonItem!
+    
     @IBOutlet var honorTimedMetadataTracksDuringPlayback: UISwitch!
     //var facesLayer: [CALayer]?
     var facesLayer: CALayer?
@@ -25,6 +27,8 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
     var seekToZeroBeforePlay: Bool?
     //AVPlayerItemMetadataOutput *itemMetadataOutput;
     var player: AVPlayer?
+    //@interface AAPLImagePickerController : UIImagePickerController
+    //var picker:UIImagePickerController?=UIImagePickerController() - See more at: http://www.theappguruz.com/blog/user-interaction-camera-using-uiimagepickercontroller-swift#sthash.mekLbXQD.dpuf
     
     override func viewDidLoad() {
         
@@ -74,6 +78,50 @@ class PlayerViewController: UIViewController, AVPlayerItemMetadataOutputPushDele
         self.player?.play()
         self.playButton.enabled = false
         self.pauseButton.enabled = true
+    }
+    
+    @IBAction func loadMoviesFromCameraRoll(sender: AnyObject) {
+        self.player?.pause()
+        let videoPicker:  UIImagePickerController = UIImagePickerController()
+        videoPicker.delegate = self
+        videoPicker.modalPresentationStyle = UIModalPresentationStyle.Popover
+        videoPicker.sourceType = .SavedPhotosAlbum
+        videoPicker.mediaTypes = [kUTTypeMovie as String]
+        videoPicker.allowsEditing = NO;
+        if(UIDevice.currentDevice().userInterfaceIdiom == UIUserInterfaceIdiom.Pad)
+        {
+            videoPicker.popoverPresentationController?.barButtonItem = self.libraryButton;
+        }
+        self.presentViewController(videoPicker, animated: true, completion: nil)
+    }
+    
+
+    
+    @IBAction func loadMoviesFromCameraRoll(sender: AnyObject) {
+        self.player.pause()
+        // Initialize UIImagePickerController to select a movie from the camera roll
+        var videoPicker: AAPLImagePickerController = AAPLImagePickerController()
+        videoPicker.delegate = self
+        videoPicker.modalPresentationStyle = UIModalPresentationPopover
+        videoPicker.sourceType = .SavedPhotosAlbum
+        videoPicker.mediaTypes = [kUTTypeMovie]
+    }
+    
+    - (IBAction)loadMoviesFromCameraRoll:(id)sender
+    {
+    [self.player pause];
+    
+    // Initialize UIImagePickerController to select a movie from the camera roll
+    AAPLImagePickerController *videoPicker = [[AAPLImagePickerController alloc] init];
+    videoPicker.delegate = self;
+    videoPicker.modalPresentationStyle = UIModalPresentationPopover;
+    videoPicker.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+    videoPicker.mediaTypes = @[(NSString*)kUTTypeMovie];
+    videoPicker.allowsEditing = NO;
+    if ( UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad )	{
+    videoPicker.popoverPresentationController.barButtonItem = self.libraryButton;
+    }
+    [self presentViewController:videoPicker animated:YES completion:nil];
     }
 }
 
